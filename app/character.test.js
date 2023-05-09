@@ -1,31 +1,15 @@
-import { character } from "./Character.js";
-describe("Given Invoice class", () => {
-  const myCompany = new Company("Test", "Sample address", "333", "22-Z");
-  const myClient = new Company(
-    "Test client",
-    "Sample address client",
-    "555",
-    "22-R"
-  );
-  const products = [new Product("Test", 33, 2)];
+/* eslint-disable no-undef */
+import { Character } from "./character.js";
 
-  const invoice = new Invoice(myCompany, myClient, products, "contado");
+describe("given a character class", () => {
+  describe("when we instanciate it", () => {
+    test("should have a character with the name", () => {
+      const character = new Character("Jofrey", "Baratheon", "14", "dead");
 
-  describe("When we instantiate it", () => {
-    test("should have a object with the properties of the class", () => {
-      expect(invoice).toHaveProperty("company", myCompany);
-      expect(invoice).toHaveProperty("client", myClient);
-      expect(invoice).toHaveProperty("products", products);
-      expect(invoice).toHaveProperty("total");
-      expect(invoice).toHaveProperty("ivaType", 21);
-      expect(invoice).toHaveProperty("payForm", "contado");
-    });
-  });
-
-  describe("When i call the method ....", () => {
-    test("should first", () => {
-      const expected = 33 * 2 * 1.21;
-      expect(invoice.calcTotal()).toBe(expected);
+      expect(character).toHaveProperty("name", "Jofrey");
+      expect(character).toHaveProperty("family", "Baratheon");
+      expect(character).toHaveProperty("age", "14");
+      expect(character).toHaveProperty("status", "dead");
     });
   });
 });
